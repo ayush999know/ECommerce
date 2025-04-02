@@ -1,32 +1,46 @@
-document.getElementById('orderForm').addEventListener('submit', function(e) {
+// Form Submission
+document.getElementById('orderForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Form data
-    const name = this.elements[0].value;
-    const email = this.elements[1].value;
-    const phone = this.elements[2].value;
-    
-    // Send email using FormSubmit.co (free service)
-    fetch('https://formsubmit.co/ajax/ayush99know@gmail.com', {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            phone: phone,
-            product: "Premium Product (₹5000)"
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Order received! We\'ll contact you shortly.');
-        this.reset();
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error submitting order. Please try again.');
-    });
+    const formData = {
+        name: e.target.elements[0].value,
+        email: e.target.elements[1].value,
+        phone: e.target.elements[2].value
+    };
+
+    // Save to localStorage
+    localStorage.setItem('lastOrder', JSON.stringify(formData));
+
+    // Send email via FormSubmit
+    try {
+        await fetch('https://formsubmit.co/ajax/ayush99know@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...formData, product: "Premium Product (₹5000)" })
+        });
+        
+        window.location.href = 'order-success.html';
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+});
+
+// Google Auth
+document.getElementById('googleLogin').addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+        .then(() => alert("Logged in with Google!"))
+        .catch(console.error);
+});
+
+// Auto-fill last order
+window.addEventListener('load', () => {
+    const lastOrder = localStorage.getItem('lastOrder');
+    if (lastOrder) {
+        const { name, email, phone } = JSON.parse(lastOrder);
+        const form = document.getElementById('orderForm');
+        form.elements[0].value = name;
+        form.elements[1].value = email;
+        form.elements[2].value = phone;
+    }
 });
