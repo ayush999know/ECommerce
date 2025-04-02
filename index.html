@@ -3,71 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Product | ₹5000</title>
+    <title>Novardent - Premium Dental Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="product-card">
-        <div class="product-image animate-float">
-            <img src="product.jpg" alt="Premium Product">
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Novar<span>dent</span></a>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#product">Product</a>
+                <a href="#features">Features</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#" id="loginBtn">Login</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Dental Solution</h1>
+            <p>Revolutionary technology for modern dental practices</p>
+            <a href="#product" class="btn">Order Now</a>
         </div>
-        <h1 class="animate-fade">Premium Product</h1>
-        <p class="price animate-fade">₹5,000</p>
-        <p class="description">High-quality product with lifetime warranty</p>
-        
-        <form id="orderForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required id="userEmail">
-            <input type="tel" placeholder="Phone Number" required>
-            <button type="submit">ORDER NOW</button>
-        </form>
+    </section>
 
-        <div class="auth-options">
-            <button id="googleLogin" class="auth-btn google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
-                Login with Google
-            </button>
-            <button id="guestCheckout" class="auth-btn guest">Checkout as Guest</button>
+    <!-- Product Section -->
+    <section class="product-section" id="product">
+        <div class="section-title">
+            <h2>Our Featured Product</h2>
         </div>
-    </div>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="product.jpg" alt="Novardent Dental Product">
+            </div>
+            <div class="product-details">
+                <h1 class="product-title">Novardent Pro 5000</h1>
+                <p class="price">₹5,000</p>
+                <p class="product-description">
+                    The Novardent Pro 5000 is a state-of-the-art dental solution designed for professionals 
+                    seeking precision, efficiency, and patient comfort.
+                </p>
+                
+                <div class="features" id="features">
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>Advanced ergonomic design</li>
+                        <li>Precision-engineered components</li>
+                        <li>Antibacterial coating</li>
+                        <li>2-year manufacturer warranty</li>
+                    </ul>
+                </div>
+                
+                <div class="order-form">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <button type="submit" class="btn btn-block">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Firebase v9 (Modular) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    "The Novardent Pro 5000 has transformed my practice."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Sharma">
+                    <div class="author-info">
+                        <h4>Dr. Priya Sharma</h4>
+                        <p>Dental Surgeon, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    "Worth every rupee. The build quality is exceptional."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Patel">
+                    <div class="author-info">
+                        <h4>Dr. Raj Patel</h4>
+                        <p>Endodontist, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyD8aAA7yyP1CD23IpAf3OlgPDkQznp3NlQ",
-            authDomain: "ecommerce-ayush.firebaseapp.com",
-            projectId: "ecommerce-ayush",
-            storageBucket: "ecommerce-ayush.firebasestorage.app",
-            messagingSenderId: "671222303816",
-            appId: "1:671222303816:web:a3bcfa456840f72aa21c7d"
-        };
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Novardent</h3>
+                <p>Leading innovator in dental technology since 2010.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Dental Street, Mumbai</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@novardent.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Novardent. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Google Login
-        document.getElementById('googleLogin').addEventListener('click', async () => {
-            try {
-                const provider = new GoogleAuthProvider();
-                const result = await signInWithPopup(auth, provider);
-                document.getElementById('userEmail').value = result.user.email;
-                alert(`Logged in as ${result.user.displayName || result.user.email}`);
-            } catch (error) {
-                alert("Google login failed: " + error.message);
-            }
-        });
-
-        // Guest Checkout
-        document.getElementById('guestCheckout').addEventListener('click', () => {
-            document.getElementById('orderForm').style.display = 'block';
-        });
-    </script>
-
-    <!-- Form Handling -->
+    <!-- Scripts -->
+    <script type="module" src="firebase.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
