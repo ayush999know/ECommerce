@@ -1,39 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Create animated stars
-    function createStars() {
-        const stars = document.querySelector('.stars');
-        const count = 100;
-        
-        for (let i = 0; i < count; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            
-            // Random properties
-            const size = Math.random() * 3;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 5;
-            const duration = 2 + Math.random() * 3;
-            
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.left = `${posX}%`;
-            star.style.top = `${posY}%`;
-            star.style.animationDelay = `${delay}s`;
-            star.style.animationDuration = `${duration}s`;
-            
-            stars.appendChild(star);
-        }
-    }
-    
     // Toggle password visibility
-    const togglePassword = document.querySelector('.toggle-password');
-    const passwordInput = document.getElementById('password');
+    const passwordToggle = document.querySelector('.password-toggle');
+    const passwordInput = document.getElementById('loginPassword');
     
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.classList.toggle('fa-eye-slash');
+    passwordToggle.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordToggle.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordToggle.classList.replace('fa-eye-slash', 'fa-eye');
+        }
     });
     
     // Form submission
@@ -42,41 +19,75 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
         
         // Simple validation
         if (!email || !password) {
-            alert('Please fill in all fields');
+            showAlert('Please fill in all fields', 'error');
             return;
         }
         
-        // Here you would typically send data to your server
-        console.log('Login attempt with:', { email, password });
+        // Validate email format
+        if (!validateEmail(email)) {
+            showAlert('Please enter a valid professional email', 'error');
+            return;
+        }
         
-        // Simulate successful login
+        // Simulate login process
+        simulateLogin(email, password);
+    });
+    
+    // Google login
+    document.getElementById('googleLogin').addEventListener('click', function() {
+        showAlert('Redirecting to Google authentication...', 'info');
+        // Implement actual Google auth here
+    });
+    
+    // Email validation function
+    function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    // Show alert message
+    function showAlert(message, type) {
+        const alertBox = document.createElement('div');
+        alertBox.className = `alert-box ${type}`;
+        alertBox.textContent = message;
+        
+        document.body.appendChild(alertBox);
+        
         setTimeout(() => {
-            alert('Login successful! Redirecting...');
-            window.location.href = 'dashboard.html'; // Change to your actual dashboard page
-        }, 1000);
-    });
+            alertBox.classList.add('fade-out');
+            setTimeout(() => {
+                alertBox.remove();
+            }, 500);
+        }, 3000);
+    }
     
-    // Social login buttons
-    document.querySelector('.btn-social.google').addEventListener('click', function() {
-        alert('Redirecting to Google login...');
-        // window.location.href = 'your-google-auth-endpoint';
-    });
-    
-    document.querySelector('.btn-social.apple').addEventListener('click', function() {
-        alert('Redirecting to Apple login...');
-        // window.location.href = 'your-apple-auth-endpoint';
-    });
-    
-    document.querySelector('.btn-social.twitter').addEventListener('click', function() {
-        alert('Redirecting to Twitter login...');
-        // window.location.href = 'your-twitter-auth-endpoint';
-    });
-    
-    // Initialize
-    createStars();
+    // Simulate login process
+    function simulateLogin(email, password) {
+        const loginBtn = loginForm.querySelector('.login-btn');
+        const originalText = loginBtn.innerHTML;
+        
+        // Show loading state
+        loginBtn.disabled = true;
+        loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+        
+        // Simulate API call
+        setTimeout(() => {
+            // For demo purposes - in real app, this would be an actual API call
+            if (email.includes('novardent') && password.length >= 8) {
+                showAlert('Login successful! Redirecting to dashboard...', 'success');
+                // window.location.href = 'dashboard.html'; // Uncomment for actual redirect
+            } else {
+                showAlert('Invalid credentials. Please try again.', 'error');
+            }
+            
+            // Reset button
+            loginBtn.disabled = false;
+            loginBtn.innerHTML = originalText;
+        }, 1500);
+    }
 });
