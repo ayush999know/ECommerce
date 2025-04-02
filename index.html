@@ -3,167 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novardent | Future of Dental Care</title>
+    <title>Novardent | Premium Dental Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <!-- Animated Background -->
-    <canvas id="stars"></canvas>
-
-    <!-- Floating Icon -->
-    <img src="assets/dental-icon.png" class="floating-icon" alt="Novardent Icon">
-
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo">Novardent</a>
-            <div class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#services">Services</a>
-                <a href="#features">Why Us</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="login.html" class="login-link">Login</a>
+    <!-- Top Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="images/novardent-logo.png" alt="Novardent Logo" class="logo">
+                <span class="brand-name">Novardent</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#products" class="nav-link active">Products</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="login.html" class="login-btn">Professional Login</a>
                 <button class="cart-btn">
                     <i class="fas fa-shopping-cart"></i>
-                    Cart
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
-            <div class="dark-mode-toggle">
-                <i class="fas fa-moon"></i>
-            </div>
-        </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#products" class="mobile-nav-link">Products</a></li>
+                <li><a href="#solutions" class="mobile-nav-link">Solutions</a></li>
+                <li><a href="#education" class="mobile-nav-link">Education</a></li>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                <li><a href="login.html" class="mobile-login-btn">Professional Login</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>The Future of Dental Care is Here</h1>
-                <p>Experience cutting-edge dental technology for a brighter, healthier smile. Novardent brings AI-powered, pain-free solutions for your dental needs.</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn btn-primary">Explore Services</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                <h1>Revolutionary Dental Technology</h1>
+                <p class="subtitle">The future of precision dentistry is here with Novardent's advanced solutions</p>
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn primary-btn">Explore Products</a>
+                    <a href="#solutions" class="btn secondary-btn">Clinical Benefits</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/dental-care.png" alt="Novardent Dental Care">
+                <img src="images/dental-product-hero.png" alt="Novardent Dental Product">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="section-title">
-            <h2>Our Advanced Dental Services</h2>
-            <p>Painless, AI-Enhanced, and Precision Dental Care</p>
+    <!-- Featured Products -->
+    <section id="featured" class="featured-products">
+        <div class="section-header">
+            <h2>Featured Dental Solutions</h2>
+            <p>Trusted by dental professionals worldwide</p>
         </div>
-        <div class="service-container">
-            <div class="service-box">
-                <i class="fas fa-tooth"></i>
-                <h3>AI Diagnosis</h3>
-                <p>Get instant AI-powered dental check-ups and personalized treatment plans.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-smile"></i>
-                <h3>Invisible Aligners</h3>
-                <p>Next-gen clear aligners customized using AI for a perfect smile.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-syringe"></i>
-                <h3>Painless Laser Dentistry</h3>
-                <p>No drills, no pain – laser-powered dental procedures for comfort.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section class="why-us" id="features">
-        <div class="section-title">
-            <h2>Why Choose Novardent?</h2>
-        </div>
-        <div class="feature-container">
-            <div class="feature-box">
-                <i class="fas fa-robot"></i>
-                <h3>AI-Powered Precision</h3>
-                <p>Our AI technology ensures 100% accuracy in diagnosis and treatment.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-clock"></i>
-                <h3>Quick & Painless</h3>
-                <p>We use the latest pain-free laser treatments for your comfort.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-user-md"></i>
-                <h3>Top Dental Experts</h3>
-                <p>Our certified specialists are trained in the latest dental innovations.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Carousel -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>What Our Patients Say</h2>
-        </div>
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "Novardent completely transformed my dental experience! AI-driven aligners were comfortable and effective."
-                </p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah">
-                    <div class="author-info">
-                        <h4>Sarah M.</h4>
-                        <p>Customer</p>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">Bestseller</div>
+                <img src="images/product-1.png" alt="Novadent Precision Scalers" class="product-image">
+                <div class="product-info">
+                    <h3>Novadent Precision Scalers</h3>
+                    <p class="product-desc">Ultrasonic scalers with adaptive frequency technology</p>
+                    <div class="product-meta">
+                        <span class="price">₹5,000</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(42)</span>
+                        </div>
                     </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
                 </div>
             </div>
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "Laser treatments at Novardent are truly painless! No fear of dentists anymore."
-                </p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="John">
-                    <div class="author-info">
-                        <h4>John D.</h4>
-                        <p>Customer</p>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/product-2.png" alt="Enamelon Whitening System" class="product-image">
+                <div class="product-info">
+                    <h3>Enamelon Whitening System</h3>
+                    <p class="product-desc">Professional-grade whitening with enamel protection</p>
+                    <div class="product-meta">
+                        <span class="price">₹7,500</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(28)</span>
+                        </div>
                     </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Practice?</h2>
+            <p>Join thousands of dental professionals who trust Novardent</p>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn primary-btn">Create Account</a>
+                <a href="#contact" class="btn secondary-btn">Contact Sales</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Novardent</h3>
-                <p>Revolutionizing dental care with AI & technology.</p>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/novardent-logo-white.png" alt="Novardent Logo" class="footer-logo">
+                <p>Innovating dental care through precision engineering and advanced materials</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> support@novardent.com</p>
-                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+            
+            <div class="footer-links">
+                <div class="links-column">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Dental Instruments</a></li>
+                        <li><a href="#">Sterilization</a></li>
+                        <li><a href="#">Preventive Care</a></li>
+                        <li><a href="#">Restorative</a></li>
+                    </ul>
+                </div>
+                
+                <div class="links-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="links-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Product Manuals</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Novardent Technologies</p>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Novardent Technologies. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+            </div>
         </div>
     </footer>
 
-    <!-- GSAP for Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
