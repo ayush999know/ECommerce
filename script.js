@@ -16,21 +16,16 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
         await fetch('https://formsubmit.co/ajax/ayush99know@gmail.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...formData, product: "Premium Product (₹5000)" })
+            body: JSON.stringify({ 
+                ...formData, 
+                product: "Premium Product (₹5000)",
+                _subject: "New Order Received!"
+            })
         });
-        
         window.location.href = 'order-success.html';
     } catch (error) {
         alert('Error: ' + error.message);
     }
-});
-
-// Google Auth
-document.getElementById('googleLogin').addEventListener('click', () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
-        .then(() => alert("Logged in with Google!"))
-        .catch(console.error);
 });
 
 // Auto-fill last order
