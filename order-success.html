@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Order Confirmed!</title>
+    <title>Order Confirmed! | Novardent</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="confirmation">
-        <h1>🎉 Order Done!</h1>
-        <p>We've sent details to your email.</p>
-        <button id="orderAgain">Order Again</button>
-        <a href="/" class="home-link">Back to Home</a>
-    </div>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Novar<span>dent</span></a>
+        </nav>
+    </header>
+
+    <main class="confirmation-page">
+        <div class="confirmation-box">
+            <i class="fas fa-check-circle"></i>
+            <h1>Order Confirmed!</h1>
+            <p>Thank you for your purchase. We've sent the details to your email.</p>
+            <div class="confirmation-actions">
+                <a href="/" class="btn">Back to Home</a>
+                <button id="orderAgain" class="btn">Order Another</button>
+            </div>
+        </div>
+    </main>
+
     <script>
         document.getElementById('orderAgain').addEventListener('click', () => {
-            window.location.href = '/';
+            window.location.href = '/#product';
         });
     </script>
 </body>
