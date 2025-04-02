@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novardent - Premium Dental Product</title>
+    <title>StellarX | Quantum Space Thruster</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Animated Starfield Background -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Floating Astronaut -->
+    <img src="assets/astronaut.png" class="astronaut" alt="Astronaut">
+    
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Novar<span>dent</span></a>
+            <a href="#" class="logo">StellarX</a>
             <div class="nav-links">
                 <a href="#" class="active">Home</a>
-                <a href="#product">Product</a>
-                <a href="#features">Features</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#" id="loginBtn">Login</a>
+                <a href="#product">Products</a>
+                <a href="#features">Tech Specs</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="login.html" class="login-link">Login</a>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    Cart
+                </button>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -29,36 +39,45 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Premium Dental Solution</h1>
-            <p>Revolutionary technology for modern dental practices</p>
-            <a href="#product" class="btn">Order Now</a>
+            <div class="hero-text">
+                <h1>Explore The Cosmos With Our Quantum Thruster</h1>
+                <p>The most advanced personal space propulsion system ever created. Experience zero-gravity movement with unprecedented precision.</p>
+                <div class="hero-btns">
+                    <a href="#product" class="btn btn-primary">Pre-Order Now</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/product.png" alt="Quantum Thruster">
+            </div>
         </div>
     </section>
 
     <!-- Product Section -->
     <section class="product-section" id="product">
         <div class="section-title">
-            <h2>Our Featured Product</h2>
+            <h2>Quantum Space Thruster</h2>
+            <p>Harness the power of quantum physics for personal space exploration</p>
         </div>
         <div class="product-container">
             <div class="product-image">
-                <img src="product.jpg" alt="Novardent Dental Product">
+                <img src="assets/product.png" alt="Quantum Thruster">
             </div>
             <div class="product-details">
-                <h1 class="product-title">Novardent Pro 5000</h1>
+                <h1 class="product-title">StellarX Q7 Thruster</h1>
                 <p class="price">₹5,000</p>
                 <p class="product-description">
-                    The Novardent Pro 5000 is a state-of-the-art dental solution designed for professionals 
-                    seeking precision, efficiency, and patient comfort.
+                    Our flagship product uses cutting-edge quantum field manipulation to provide silent, 
+                    fuel-less propulsion in zero-gravity environments.
                 </p>
                 
                 <div class="features" id="features">
                     <h3>Key Features:</h3>
                     <ul>
-                        <li>Advanced ergonomic design</li>
-                        <li>Precision-engineered components</li>
-                        <li>Antibacterial coating</li>
-                        <li>2-year manufacturer warranty</li>
+                        <li>Quantum vacuum plasma propulsion</li>
+                        <li>Adjustable thrust from 0.1N to 50N</li>
+                        <li>72-hour continuous operation</li>
+                        <li>Neural interface compatibility</li>
                     </ul>
                 </div>
                 
@@ -66,17 +85,17 @@
                     <form id="orderForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" placeholder="Elon Musk" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" placeholder="elon@spacex.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" id="phone" placeholder="+91 9876543210" required>
                         </div>
-                        <button type="submit" class="btn btn-block">Place Order</button>
+                        <button type="submit" class="btn-order">Pre-Order Now</button>
                     </form>
                 </div>
             </div>
@@ -86,30 +105,31 @@
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="section-title">
-            <h2>What Our Customers Say</h2>
+            <h2>Astronaut Testimonials</h2>
+            <p>Hear what professionals say about our products</p>
         </div>
         <div class="testimonial-container">
             <div class="testimonial">
                 <p class="testimonial-text">
-                    "The Novardent Pro 5000 has transformed my practice."
+                    "The StellarX Q7 completely changed how we conduct EVAs. The precision control is unmatched."
                 </p>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Sharma">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Commander Williams">
                     <div class="author-info">
-                        <h4>Dr. Priya Sharma</h4>
-                        <p>Dental Surgeon, Mumbai</p>
+                        <h4>Commander Williams</h4>
+                        <p>ISS Expedition 65</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <p class="testimonial-text">
-                    "Worth every rupee. The build quality is exceptional."
+                    "We've reduced our spacewalk time by 40% since adopting these thrusters."
                 </p>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Patel">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Chen">
                     <div class="author-info">
-                        <h4>Dr. Raj Patel</h4>
-                        <p>Endodontist, Delhi</p>
+                        <h4>Dr. Chen</h4>
+                        <p>Tiangong Space Station</p>
                     </div>
                 </div>
             </div>
@@ -120,28 +140,32 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About Novardent</h3>
-                <p>Leading innovator in dental technology since 2010.</p>
+                <h3>StellarX</h3>
+                <p>Pioneering the future of personal space technology</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Dental Street, Mumbai</p>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@novardent.com</p>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#product">Products</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@stellarx.com</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 Novardent. All Rights Reserved.</p>
+            <p>&copy; 2023 StellarX Technologies</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script type="module" src="firebase.js"></script>
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
