@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmed!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="confirmation">
+        <h1>🎉 Order Done!</h1>
+        <p>We've sent details to your email.</p>
+        <button id="orderAgain">Order Again</button>
+        <a href="/" class="home-link">Back to Home</a>
+    </div>
+    <script>
+        document.getElementById('orderAgain').addEventListener('click', () => {
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>
