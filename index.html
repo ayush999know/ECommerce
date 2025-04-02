@@ -3,41 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Store</title>
+    <title>Premium Product | ₹5000</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Online Store</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="products">
-        <h2>Our Products</h2>
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
-            <h3>Product Name 1</h3>
-            <p>$20.00</p>
-            <button class="add-to-cart">Add to Cart</button>
+    <div class="product-card">
+        <div class="product-image animate-float">
+            <img src="product.jpg" alt="Premium Product">
         </div>
-
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 2">
-            <h3>Product Name 2</h3>
-            <p>$30.00</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2024 E-Commerce Store. All rights reserved.</p>
-    </footer>
+        <h1 class="animate-fade">Premium Product</h1>
+        <p class="price animate-fade">₹5,000</p>
+        <p class="description">High-quality product with lifetime warranty</p>
+        
+        <form id="orderForm" class="animate-fade">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <button type="submit">ORDER NOW</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>
