@@ -78,6 +78,40 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Auth Buttons */
+.auth-options {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.google {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.guest {
+    background: #f0f0f0;
+    border: none;
+}
+
+.auth-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
 /* Animations */
 .animate-float {
     animation: float 3s ease-in-out infinite;
