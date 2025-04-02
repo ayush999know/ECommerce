@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StellarX | Quantum Space Thruster</title>
+    <title>Novardent | Future of Dental Care</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Animated Starfield Background -->
-    <div class="stars" id="stars"></div>
     
-    <!-- Floating Astronaut -->
-    <img src="assets/astronaut.png" class="astronaut" alt="Astronaut">
-    
+    <!-- Animated Background -->
+    <canvas id="stars"></canvas>
+
+    <!-- Floating Icon -->
+    <img src="assets/dental-icon.png" class="floating-icon" alt="Novardent Icon">
+
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">StellarX</a>
+            <a href="#" class="logo">Novardent</a>
             <div class="nav-links">
                 <a href="#" class="active">Home</a>
-                <a href="#product">Products</a>
-                <a href="#features">Tech Specs</a>
+                <a href="#services">Services</a>
+                <a href="#features">Why Us</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="login.html" class="login-link">Login</a>
                 <button class="cart-btn">
@@ -30,8 +31,8 @@
                     Cart
                 </button>
             </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div class="dark-mode-toggle">
+                <i class="fas fa-moon"></i>
             </div>
         </nav>
     </header>
@@ -40,96 +41,95 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Explore The Cosmos With Our Quantum Thruster</h1>
-                <p>The most advanced personal space propulsion system ever created. Experience zero-gravity movement with unprecedented precision.</p>
+                <h1>The Future of Dental Care is Here</h1>
+                <p>Experience cutting-edge dental technology for a brighter, healthier smile. Novardent brings AI-powered, pain-free solutions for your dental needs.</p>
                 <div class="hero-btns">
-                    <a href="#product" class="btn btn-primary">Pre-Order Now</a>
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
                     <a href="#features" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/product.png" alt="Quantum Thruster">
+                <img src="assets/dental-care.png" alt="Novardent Dental Care">
             </div>
         </div>
     </section>
 
-    <!-- Product Section -->
-    <section class="product-section" id="product">
+    <!-- Services Section -->
+    <section class="services-section" id="services">
         <div class="section-title">
-            <h2>Quantum Space Thruster</h2>
-            <p>Harness the power of quantum physics for personal space exploration</p>
+            <h2>Our Advanced Dental Services</h2>
+            <p>Painless, AI-Enhanced, and Precision Dental Care</p>
         </div>
-        <div class="product-container">
-            <div class="product-image">
-                <img src="assets/product.png" alt="Quantum Thruster">
+        <div class="service-container">
+            <div class="service-box">
+                <i class="fas fa-tooth"></i>
+                <h3>AI Diagnosis</h3>
+                <p>Get instant AI-powered dental check-ups and personalized treatment plans.</p>
             </div>
-            <div class="product-details">
-                <h1 class="product-title">StellarX Q7 Thruster</h1>
-                <p class="price">₹5,000</p>
-                <p class="product-description">
-                    Our flagship product uses cutting-edge quantum field manipulation to provide silent, 
-                    fuel-less propulsion in zero-gravity environments.
-                </p>
-                
-                <div class="features" id="features">
-                    <h3>Key Features:</h3>
-                    <ul>
-                        <li>Quantum vacuum plasma propulsion</li>
-                        <li>Adjustable thrust from 0.1N to 50N</li>
-                        <li>72-hour continuous operation</li>
-                        <li>Neural interface compatibility</li>
-                    </ul>
-                </div>
-                
-                <div class="order-form">
-                    <form id="orderForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Elon Musk" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="elon@spacex.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="+91 9876543210" required>
-                        </div>
-                        <button type="submit" class="btn-order">Pre-Order Now</button>
-                    </form>
-                </div>
+            <div class="service-box">
+                <i class="fas fa-smile"></i>
+                <h3>Invisible Aligners</h3>
+                <p>Next-gen clear aligners customized using AI for a perfect smile.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-syringe"></i>
+                <h3>Painless Laser Dentistry</h3>
+                <p>No drills, no pain – laser-powered dental procedures for comfort.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Why Us Section -->
+    <section class="why-us" id="features">
+        <div class="section-title">
+            <h2>Why Choose Novardent?</h2>
+        </div>
+        <div class="feature-container">
+            <div class="feature-box">
+                <i class="fas fa-robot"></i>
+                <h3>AI-Powered Precision</h3>
+                <p>Our AI technology ensures 100% accuracy in diagnosis and treatment.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-clock"></i>
+                <h3>Quick & Painless</h3>
+                <p>We use the latest pain-free laser treatments for your comfort.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-user-md"></i>
+                <h3>Top Dental Experts</h3>
+                <p>Our certified specialists are trained in the latest dental innovations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
     <section class="testimonials" id="testimonials">
         <div class="section-title">
-            <h2>Astronaut Testimonials</h2>
-            <p>Hear what professionals say about our products</p>
+            <h2>What Our Patients Say</h2>
         </div>
         <div class="testimonial-container">
             <div class="testimonial">
                 <p class="testimonial-text">
-                    "The StellarX Q7 completely changed how we conduct EVAs. The precision control is unmatched."
+                    "Novardent completely transformed my dental experience! AI-driven aligners were comfortable and effective."
                 </p>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Commander Williams">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah">
                     <div class="author-info">
-                        <h4>Commander Williams</h4>
-                        <p>ISS Expedition 65</p>
+                        <h4>Sarah M.</h4>
+                        <p>Customer</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <p class="testimonial-text">
-                    "We've reduced our spacewalk time by 40% since adopting these thrusters."
+                    "Laser treatments at Novardent are truly painless! No fear of dentists anymore."
                 </p>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Chen">
+                    <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="John">
                     <div class="author-info">
-                        <h4>Dr. Chen</h4>
-                        <p>Tiangong Space Station</p>
+                        <h4>John D.</h4>
+                        <p>Customer</p>
                     </div>
                 </div>
             </div>
@@ -140,32 +140,30 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>StellarX</h3>
-                <p>Pioneering the future of personal space technology</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
+                <h3>Novardent</h3>
+                <p>Revolutionizing dental care with AI & technology.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#product">Products</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="login.html">Login</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> contact@stellarx.com</p>
+                <p><i class="fas fa-envelope"></i> support@novardent.com</p>
                 <p><i class="fas fa-phone"></i> +91 9876543210</p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 StellarX Technologies</p>
+            <p>&copy; 2025 Novardent Technologies</p>
         </div>
     </footer>
 
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
