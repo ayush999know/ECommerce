@@ -1,15 +1,32 @@
-/* Base Styles */
-* {
+:root {
+    --primary: #00d2ff;
+    --secondary: #3a7bd5;
+    --dark: #000428;
+    --darker: #01021a;
+    --light: #ffffff;
+    --light-secondary: #cccccc;
+    --bg-gradient: linear-gradient(to bottom, var(--dark), #004e92);
+    --text-gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+    --modal-bg: linear-gradient(135deg, var(--dark), #004e92);
+}
+
+/* Base Styles with Modern Reset */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    color: #fff;
+    color: var(--light);
     overflow-x: hidden;
-    background: linear-gradient(to bottom, #000428, #004e92);
+    background: var(--bg-gradient);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
 /* Space Background Effects */
@@ -58,7 +75,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    background: var(--text-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -72,7 +89,7 @@ nav ul {
 }
 
 nav a {
-    color: #fff;
+    color: var(--light);
     text-decoration: none;
     font-size: 1.1rem;
     transition: color 0.3s;
@@ -80,7 +97,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #00d2ff;
+    color: var(--primary);
 }
 
 nav a::after {
@@ -90,7 +107,7 @@ nav a::after {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #00d2ff;
+    background-color: var(--primary);
     transition: width 0.3s;
 }
 
@@ -99,7 +116,7 @@ nav a:hover::after {
 }
 
 .cart-count {
-    background-color: #3a7bd5;
+    background-color: var(--secondary);
     color: white;
     border-radius: 50%;
     padding: 0.2rem 0.5rem;
@@ -161,21 +178,21 @@ nav a:hover::after {
 .product-info h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #00d2ff;
+    color: var(--primary);
 }
 
 .product-description {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    color: #ccc;
+    color: var(--light-secondary);
 }
 
 .price {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    color: #fff;
+    color: var(--light);
 }
 
 .product-actions {
@@ -194,14 +211,14 @@ nav a:hover::after {
 }
 
 .buy-now {
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    background: var(--text-gradient);
     color: white;
 }
 
 .add-to-cart {
     background: transparent;
-    color: #00d2ff;
-    border: 2px solid #00d2ff;
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .buy-now:hover {
@@ -229,7 +246,7 @@ nav a:hover::after {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #000428, #004e92);
+    background: var(--modal-bg);
     padding: 2rem;
     border-radius: 10px;
     width: 90%;
@@ -251,17 +268,17 @@ nav a:hover::after {
     right: 1.5rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #ccc;
+    color: var(--light-secondary);
     transition: color 0.3s;
 }
 
 .close-btn:hover {
-    color: #00d2ff;
+    color: var(--primary);
 }
 
 .modal h2 {
     margin-bottom: 1.5rem;
-    color: #00d2ff;
+    color: var(--primary);
 }
 
 .modal form {
@@ -270,22 +287,28 @@ nav a:hover::after {
     gap: 1rem;
 }
 
-.modal input {
+.modal input, .modal textarea {
     padding: 0.8rem;
     border-radius: 5px;
     border: 1px solid #444;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 1rem;
+    width: 100%;
 }
 
-.modal input::placeholder {
+.modal textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal input::placeholder, .modal textarea::placeholder {
     color: #aaa;
 }
 
 .modal button[type="submit"] {
     padding: 0.8rem;
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    background: var(--text-gradient);
     color: white;
     border: none;
     border-radius: 5px;
@@ -297,6 +320,74 @@ nav a:hover::after {
 
 .modal button[type="submit"]:hover {
     transform: translateY(-3px);
+}
+
+/* Order Styles */
+.order-details {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.order-details h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.order-item strong {
+    color: var(--primary);
+}
+
+.empty-orders {
+    text-align: center;
+    padding: 2rem;
+    color: var(--light-secondary);
+}
+
+.order-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.product-summary {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Scrollbar styling */
+.order-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.order-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.order-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* Button States */
+.added-to-cart {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+.processing {
+    background: linear-gradient(90deg, var(--secondary), #2a5bb5) !important;
+    cursor: progress !important;
 }
 
 /* Responsive Design */
