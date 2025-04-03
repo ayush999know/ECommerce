@@ -3,104 +3,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novardent - Space Exploration</title>
+    <title>Novardent - Voyager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Arial', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            color: #fff;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(65, 105, 225, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(65, 105, 225, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(65, 105, 225, 0);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Space Background */
+        .stars, .twinkling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .stars {
+            background: #000 url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+            z-index: -2;
+        }
+
+        .twinkling {
+            background: transparent url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+            z-index: -1;
+            animation: rotate 200s linear infinite;
+        }
+
+        /* Header Styles */
+        .space-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 149, 237, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-left nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            color: #6495ed;
+        }
+
+        .nav-link::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+            transform: translateY(5px);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #6495ed, #a7c7e7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(100, 149, 237, 0.8), 0 0 30px rgba(100, 149, 237, 0.6);
+            }
+        }
+
+        /* Product Container */
+        .product-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .product-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: rgba(20, 20, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(100, 149, 237, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6495ed, #a7c7e7, #6495ed);
+            z-index: -1;
+            border-radius: 16px;
+            animation: borderRotate 6s linear infinite;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6495ed, #a7c7e7, #6495ed);
+            z-index: -2;
+            filter: blur(20px);
+            border-radius: 16px;
+            opacity: 0.5;
+            animation: borderRotate 6s linear infinite reverse;
+        }
+
+        @keyframes borderRotate {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stars-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #a7c7e7;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(167, 199, 231, 0.5);
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6495ed;
+            margin: 10px 0;
+        }
+
+        .product-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .buy-now {
+            background: linear-gradient(45deg, #6495ed, #4169e1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.4);
+            flex: 2;
+            justify-content: center;
+        }
+
+        .buy-now:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.6);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .add-to-cart {
+            background: rgba(25, 25, 60, 0.8);
+            color: #a7c7e7;
+            border: 1px solid #6495ed;
+            flex: 1;
+        }
+
+        .add-to-cart:hover {
+            background: rgba(65, 105, 225, 0.2);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+        }
+
+        .flare {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 45px;
+            transform: skewX(-45deg);
+            left: -150%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+            transition: 0.7s;
+        }
+
+        .buy-now:hover .flare {
+            left: 150%;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: rgba(30, 30, 70, 0.5);
+            border-radius: 50px;
+            border: 1px solid rgba(100, 149, 237, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.2);
+        }
+
+        .feature i {
+            color: #6495ed;
+        }
+
+        /* Floating Asteroids */
+        .floating-asteroids {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .asteroid {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(50,50,100,0.8), rgba(20,20,50,0.9));
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5);
+            filter: blur(0.5px);
+        }
+
+        .asteroid::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(100,149,237,0.3), transparent 70%);
+        }
+
+        .small {
+            width: 30px;
+            height: 30px;
+            top: 20%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite, twinkle 4s ease-in-out infinite;
+        }
+
+        .medium {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation: float 10s ease-in-out infinite reverse, twinkle 5s ease-in-out infinite;
+        }
+
+        .large {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 70%;
+            animation: float 12s ease-in-out infinite, twinkle 6s ease-in-out infinite;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(25, 25, 60, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 149, 237, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 100;
+        }
+
+        .notification.show {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .space-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-left nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .product-card {
+                flex-direction: column;
+            }
+            
+            .product-options {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="stars"></div>
     <div class="twinkling"></div>
     
-    <header class="top-bar">
-        <div class="logo">NOVARDENT</div>
-        <nav>
-            <ul>
-                <li><a href="#" id="login-btn">Login</a></li>
-                <li><a href="#" id="about-btn">About</a></li>
-                <li><a href="#" id="cart-btn">Your Cart <span class="cart-count">0</span></a></li>
-                <li><a href="#" id="track-btn">Track Your Order</a></li>
-            </ul>
-        </nav>
+    <header class="space-header">
+        <div class="header-left">
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-text="Login"><i class="fas fa-user-astronaut"></i> Login</a></li>
+                    <li><a href="#" class="nav-link" data-text="Cart"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="#" class="nav-link" data-text="Track Order"><i class="fas fa-rocket"></i> Track Order</a></li>
+                    <li><a href="#" class="nav-link" data-text="About"><i class="fas fa-info-circle"></i> About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <h1 class="logo">Novardent</h1>
+        </div>
     </header>
 
-    <main class="container">
+    <main class="product-container">
         <div class="product-card">
             <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Voyager Spacecraft">
+                <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Voyager Spacecraft" class="floating">
                 <div class="stars-overlay"></div>
             </div>
             <div class="product-info">
-                <h2>Voyager</h2>
-                <p class="product-description">The ultimate in interstellar travel technology. Explore the cosmos like never before with our flagship spacecraft.</p>
+                <h2 class="product-title">Voyager</h2>
+                <p class="product-description">The ultimate space exploration device. Equipped with quantum propulsion and interstellar navigation systems to take you beyond the stars.</p>
                 <div class="price">$1,299,999</div>
-                <div class="product-actions">
-                    <button class="buy-now">Buy Now</button>
-                    <button class="add-to-cart">Add to Cart</button>
+                
+                <div class="product-options">
+                    <button class="btn buy-now pulse">
+                        <span>Buy Now</span>
+                        <div class="flare"></div>
+                    </button>
+                    <button class="btn add-to-cart">
+                        <span>Add to Cart</span>
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="product-features">
+                    <div class="feature">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Quantum Engine</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Plasma Shields</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-compass"></i>
+                        <span>Interstellar GPS</span>
+                    </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="floating-asteroids">
+            <div class="asteroid small"></div>
+            <div class="asteroid medium"></div>
+            <div class="asteroid large"></div>
         </div>
     </main>
 
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Login to Novardent</h2>
-            <form>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
+    <div class="notification"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation hover effect
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.querySelector('i').style.transform = 'rotate(15deg) scale(1.2)';
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.querySelector('i').style.transform = 'rotate(0) scale(1)';
+                });
+            });
 
-    <div class="modal" id="about-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>About Novardent</h2>
-            <p>Novardent is a premier space technology company dedicated to making interstellar travel accessible to everyone. Founded in 2023, we combine cutting-edge technology with visionary design to create spacecraft that redefine exploration.</p>
-        </div>
-    </div>
+            // Product image hover effect
+            const productImage = document.querySelector('.product-image img');
+            productImage.addEventListener('mouseenter', () => {
+                productImage.style.transform = 'scale(1.05)';
+            });
+            productImage.addEventListener('mouseleave', () => {
+                productImage.style.transform = 'scale(1)';
+            });
 
-    <div class="modal" id="purchase-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Complete Your Purchase</h2>
-            <form id="purchase-form">
-                <input type="text" id="name" placeholder="Full Name" required>
-                <input type="email" id="email" placeholder="Email Address" required>
-                <input type="tel" id="phone" placeholder="Phone Number" required>
-                <textarea id="address" placeholder="Full Shipping Address" rows="3" required></textarea>
-                <div class="product-summary">
-                    <h3>Order Summary</h3>
-                    <div class="order-item">
-                        <span>Voyager Spacecraft</span>
-                        <span>$1,299,999</span>
-                    </div>
-                    <div class="order-item" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem; margin-top: 0.5rem;">
-                        <strong>Total</strong>
-                        <strong>$1,299,999</strong>
-                    </div>
-                </div>
-                <button type="submit">Confirm Purchase</button>
-            </form>
-        </div>
-    </div>
+            // Button click effects
+            const buyNowBtn = document.querySelector('.buy-now');
+            const addToCartBtn = document.querySelector('.add-to-cart');
+            const notification = document.querySelector('.notification');
 
-    <div class="modal" id="orders-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Your Orders</h2>
-            <div id="orders-container">
-                <div class="empty-orders" id="empty-orders">
-                    <i class="fas fa-rocket" style="font-size: 3rem; margin-bottom: 1rem; color: #00d2ff;"></i>
-                    <p>No orders yet</p>
-                    <p>Your future space adventures will appear here</p>
-                </div>
-                <div class="order-list" id="order-list"></div>
-            </div>
-        </div>
-    </div>
+            buyNowBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showNotification('Voyager purchased! Preparing for launch...', 'fas fa-rocket');
+                
+                // Ripple effect
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                buyNowBtn.appendChild(ripple);
+                
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 1000);
+            });
 
-    <script src="script.js"></script>
+            addToCartBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showNotification('Voyager added to your cart!', 'fas fa-shopping-cart');
+                
+                // Cart icon animation
+                const cartIcon = addToCartBtn.querySelector('i');
+                cartIcon.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+            });
+
+            function showNotification(message, iconClass) {
+                notification.innerHTML = `<i class="${iconClass}"></i> ${message}`;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+
+            // Create additional stars for background
+            createStars();
+            
+            function createStars() {
+                const starsContainer = document.querySelector('.stars');
+                const count = 100;
+                
+                for (let i = 0; i < count; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    // Random positioning
+                    const x = Math.random() * 100;
+                    const y = Math.random() * 100;
+                    
+                    // Random size
+                    const size = Math.random() * 3;
+                    
+                    // Random animation duration
+                    const duration = 2 + Math.random() * 3;
+                    const delay = Math.random() * 5;
+                    
+                    star.style.left = `${x}%`;
+                    star.style.top = `${y}%`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.animationDuration = `${duration}s`;
+                    star.style.animationDelay = `${delay}s`;
+                    
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            // Add CSS for dynamically created stars
+            const style = document.createElement('style');
+            style.textContent = `
+                .star {
+                    position: absolute;
+                    background-color: white;
+                    border-radius: 50%;
+                    animation: twinkle ${2 + Math.random() * 3}s ease-in-out infinite;
+                    opacity: ${0.3 + Math.random() * 0.7};
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Mouse move parallax effect
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                document.querySelector('.small').style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+                document.querySelector('.medium').style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+                document.querySelector('.large').style.transform = `translate(${x * 40}px, ${y * 40}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
